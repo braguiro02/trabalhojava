@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+			<title>Autores</title>
+	</head>
+			<body>
+				<center>
+					<h1>Lista de Autores</h1>
+					<table>	
+				<tr th:each="autor : ${listaAutores}">
+				<td th:text="${autor.id}">1</td>
+			<td><a href="#" th:href="@{'/autores/'+${autor.id}}" th:text="${autor.nome}"> Título </a></td>
+</tr>
+</table>
+				</center>
+			</body>
+</html>

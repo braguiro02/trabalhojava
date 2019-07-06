@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/livros/gravar}"
+    method="post" th:object="${livro}" action="#" >
+    <input type="hidden"  th:field="*{id}" />
+    Nome: <input type="text" name="nome" th:field="*{nome}"> <br/>
+    Quantidade Páginas: <input type="text" name="quantidadePaginas" th:field="*{quantidadePaginas}"><br/>
+    <select th:object="${livro}" th:field="*{autor}">
+   	 <option value="">Selecione o Autor</option>
+   	 <option th:each="autor : ${autores}"
+   		 th:value="${autor.id}" th:utext="${autor.nome} "
+   		 selected="selected"></option>
+    </select><br/>
+    <input type="submit" value="enviar">
+</form>
+</body>
+</html>
